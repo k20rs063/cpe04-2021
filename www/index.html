@@ -174,14 +174,14 @@
         ctx.drawImage(img, 0, 0, 300, 300);
       };
       var audio = new Audio();
-      audio.src = "pin.wav";
+      audio.src = "ph.mp3";
       audio.play();
 
     }
     //Alarm2の処理
     function alarm2(){
       var audio = new Audio();
-      audio.src = "pin.wav";
+      audio.src = "dr.mp3";
       audio.play();
     }
     
@@ -232,7 +232,7 @@
             active = false;
             alarm();
             $('#btnA').prop('disabled', false);
-          }else if(rest > 0 && rest < 4){
+          }else if(rest == 5){
             alarm2();
           }
         }
