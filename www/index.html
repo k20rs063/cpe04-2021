@@ -178,14 +178,19 @@
       audio.play();
 
     }
+    //Alarm2の処理
+    function alarm2(){
+      var audio = new Audio();
+      audio.src = "pin.wav";
+      audio.play();
+    }
     
     // ButtonAがクリックされた時の処理
     function btnAClick(e){
-      active = true;
-      startTime = new Date();
+           active = true;
+           startTime = new Date();
       $('#btnA').prop('disabled', true);
       $('#btnB').prop('disabled', false);
-
         
     }
 
@@ -196,8 +201,8 @@
       $('#btnB').prop('disabled', true);
 
 
-        
-        
+
+   
     }
 
     // ButtonCがクリックされた時の処理
@@ -212,6 +217,7 @@
 
         
     }
+
     
  
     // 繰り返し実行する処理
@@ -222,12 +228,15 @@
           $("#time").html("経過時間: " + time);
           $("#remain").html("残り時間: " + rest);
           analog(rest);
-          if (rest <= 0) {
+          if(rest <= 0){
             active = false;
             alarm();
             $('#btnA').prop('disabled', false);
+          }else if(rest > 0 && rest < 4){
+            alarm2();
           }
         }
+        
         
     } 
 
@@ -243,7 +252,7 @@
     <div id="time">Time</div>
     <button id="btnA">Start</button>  
     <button id="btnB">Stop</button>  
-    <button id="btnC">Set</button>  
+    <button id="btnC">Set</button> 
     <input type="number" id="minute" value=0 >
     <input type="number" id="second" value=15 >
 </body>
